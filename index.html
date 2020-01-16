@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Browser</title>
+<style>
+#iframe {
+position: absolute;
+bottom: 0px;
+left: 0px;
+width: 100%;
+height: calc(100% - 40px);
+border: transparent;
+}
+</style>
+<script>
+function keydown(event, elem) {
+if (event.key == "Enter") {
+document.getElementById("iframe").setAttribute("src", "browser.php?url=" + btoa(elem.value));
+}
+}
+</script>
+</head>
+<body>
+<div id='toolbar'>
+<input onkeydown='keydown(event, this)' value='https://old.reddit.com/'>
+</div>
+<iframe src='data:text/html, Type in an address in the text box and hit enter' id='iframe'>
+You browser doesn't support iframe
+</iframe>
+</body>
+</html>
